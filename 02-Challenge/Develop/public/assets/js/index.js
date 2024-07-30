@@ -29,12 +29,14 @@ const hide = (elem) => {
 let activeNote = {};
 
 const getNotes = () =>
+  console.log('yessir')
   fetch('/api/notes', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
   });
+
 
 const saveNote = (note) =>
   fetch('/api/notes', {
@@ -130,6 +132,7 @@ const handleRenderBtns = () => {
 // Render the list of note titles
 const renderNoteList = async (notes) => {
   let jsonNotes = await notes.json();
+  console.log(jsonNotes);
   if (window.location.pathname === '/notes') {
     noteList.forEach((el) => (el.innerHTML = ''));
   }
